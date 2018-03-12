@@ -34,10 +34,12 @@ defmodule Rectangle do
     {(elem(first_corner, 0) + elem(second_corner,0)) / 2 , (elem(first_corner, 1) + elem(second_corner,1)) / 2}
   end
 
+  #Write a function that figures out if a point exists inside of a rectangle-this works for axes alligned rectangles
   def point_exists_in(top_left_corner, length, height, point) do
     elem(top_left_corner,0) <= elem(point,0) && elem(top_left_corner,0) + length  >= elem(point,0) && elem(top_left_corner,1) >= elem(point,1) && elem(top_left_corner,0) - height <= elem(point,1)
   end
 
+  #Write a function that figures out if a point exists inside of a rectangle-this works for rectangles not alligned w axes
   def points_exists_in_enhanced(top_left_corner, bottom_left_corner, top_right_corner, bottom_right_corner, point) do
     area_of_rectangle = area_of_triangle(top_left_corner, bottom_left_corner, top_right_corner) + area_of_triangle(bottom_left_corner, bottom_right_corner, top_right_corner)
     tl_bl_point = area_of_triangle(top_left_corner, bottom_left_corner, point)
